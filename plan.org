@@ -1,5 +1,5 @@
 * Tasks
 ** DONE Implement the vec3 class [[file:vec3.h][.h file]]
 CLOSED: [2026-01-23 Fri 16:58]
-** TODO Implement the color utility functions [[file:color.h][.h file]]
+** DONE Implement the color utility functions [[file:color.h][.h file]]
 ** TODO Finish off the first image [[file:main.cpp::std::clog << "\rDone \n";][program]]

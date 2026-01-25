@@ -1,6 +1,11 @@
 #include <iostream>
 
+#include "color.h"
+#include "vec3.h"
+
 int main(){
+
+  // Image dimensions
   int image_width = 256;
   int image_height = 256;
 
@@ -9,14 +14,8 @@ int main(){
   for (int i = 0; i < image_width; i++){
     std::clog << "\rScanlogs remaining: " << (image_width - i) << " " << std::flush;
     for(int j = 0;j < image_height;j++){
-      double r = double(i) / (image_width-1);
-      double g = double(j) / (image_height-1);
-      double b = 0.0;
-
-      int ir = int(255.999 * r);
-      int ig = int(255.999 * g);
-      int ib = int(255.999 * b);
-      std::cout << ir << ' ' << ig << ' ' << ib << ' ' << '\n';
+      color pixel_color = color(double(i)/(image_width-1), double(j)/(image_height-1), 0);
+      write_color(std::cout, pixel_color);
     }
   }
   std::clog << "\rDone \n";
