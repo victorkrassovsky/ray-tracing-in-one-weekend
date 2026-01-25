@@ -2,4 +2,11 @@
 ** DONE Implement the vec3 class [[file:vec3.h][.h file]]
 CLOSED: [2026-01-23 Fri 16:58]
 ** DONE Implement the color utility functions [[file:color.h][.h file]]
-** TODO Finish off the first image [[file:main.cpp::std::clog << "\rDone \n";][program]]
+CLOSED: [2026-01-25 Sun 11:53]
+** DONE Finish off the first image [[file:main.cpp::std::clog << "\rDone \n";][program]]
+CLOSED: [2026-01-25 Sun 11:53]
+** Chapter 4:
+*** TODO Complete Ray [[file:ray.h][class]]
+*** TODO Introduce rays into scene in [[file:main.cpp::std::clog << "\rDone \n";][program]]
+*** TODO Draw a blue to white gradient 
+*** TODO Create some other images
