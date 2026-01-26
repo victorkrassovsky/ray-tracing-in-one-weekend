@@ -6,7 +6,8 @@ CLOSED: [2026-01-25 Sun 11:53]
 ** DONE Finish off the first image [[file:main.cpp::std::clog << "\rDone \n";][program]]
 CLOSED: [2026-01-25 Sun 11:53]
 ** Chapter 4:
-*** TODO Complete Ray [[file:ray.h][class]]
-*** TODO Introduce rays into scene in [[file:main.cpp::std::clog << "\rDone \n";][program]]
+*** DONE Complete Ray [[file:ray.h][class]]
+CLOSED: [2026-01-25 Sun 16:04]
+*** TODO Introduce rays into scene in [[file:main.cpp::std::clog << "\rDone \n";][main.cpp]]
 *** TODO Draw a blue to white gradient 
 *** TODO Create some other images
