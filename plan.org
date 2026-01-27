@@ -1,3 +1,4 @@
+
 * Tasks
 ** DONE Implement the vec3 class [[file:vec3.h][.h file]]
 CLOSED: [2026-01-23 Fri 16:58]
@@ -10,6 +11,8 @@ CLOSED: [2026-01-25 Sun 11:53]
 CLOSED: [2026-01-25 Sun 16:04]
 *** DONE Introduce rays into scene in [[file:main.cpp::std::clog << "\rDone \n";][main.cpp]]
 CLOSED: [2026-01-25 Sun 17:53]
-*** TODO DEBUG!!!
-*** TODO Draw a blue to white gradient 
+*** DONE DEBUG!!!
+CLOSED: [2026-01-26 Mon 17:49]
+*** DONE Draw a blue to white gradient
+CLOSED: [2026-01-26 Mon 17:49]
 *** TODO Create some other images

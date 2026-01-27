@@ -14,16 +14,16 @@ color ray_color(const ray& r) {
 int main(){
 
   // Image
-  double aspect_ratio = 16.0 / 9.0; // should be (image_height/image_width)
+  auto aspect_ratio = 16.0 / 9.0; // should be (image_height/image_width)
   int image_width = 400;
   int image_height = int(image_width / aspect_ratio);
   image_height = (image_height < 1) ? 1 : image_height; // height needs to be a positive integer
 
   // Camera
 
-  double focal_length = 1.0; // distance from camera to viewport
-  double viewport_height = 2.0;
-  double viewport_width = viewport_height * (double(image_width)/image_height);
+  auto focal_length = 1.0; // distance from camera to viewport
+  auto viewport_height = 2.0;
+  auto viewport_width = viewport_height * (double(image_width)/image_height);
   point3 camera_center = point3(0,0,0);
 
   // vectors that go across and down the viewport
@@ -43,7 +43,7 @@ int main(){
   std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
   
   for (int j = 0; j < image_height; j++){
-    std::clog << "\rScanlogs remaining: " << (image_height - j) << " \n" << std::flush;
+    std::clog << "\rScanlogs remaining: " << (image_height - j) << " " << std::flush;
     for(int i = 0; i < image_width ; i++){
       point3 pixel_center = pixel00_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
       vec3 ray_direction = pixel_center - camera_center;
