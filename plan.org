@@ -1,5 +1,20 @@
+
 * Tasks
 ** DONE Implement the vec3 class [[file:vec3.h][.h file]]
 CLOSED: [2026-01-23 Fri 16:58]
 ** DONE Implement the color utility functions [[file:color.h][.h file]]
-** TODO Finish off the first image [[file:main.cpp::std::clog << "\rDone \n";][program]]
+CLOSED: [2026-01-25 Sun 11:53]
+** DONE Finish off the first image [[file:main.cpp::std::clog << "\rDone \n";][program]]
+CLOSED: [2026-01-25 Sun 11:53]
+** Chapter 4:
+*** DONE Complete Ray [[file:ray.h][class]]
+CLOSED: [2026-01-25 Sun 16:04]
+*** DONE Introduce rays into scene in [[file:main.cpp::std::clog << "\rDone \n";][main.cpp]]
+CLOSED: [2026-01-25 Sun 17:53]
+*** DONE DEBUG!!!
+CLOSED: [2026-01-26 Mon 17:49]
+*** DONE Draw a blue to white gradient
+CLOSED: [2026-01-26 Mon 17:49]
+*** DONE Create some other images
+CLOSED: [2026-01-26 Mon 17:54]
+
