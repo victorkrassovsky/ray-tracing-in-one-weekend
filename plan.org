@@ -18,3 +18,5 @@ CLOSED: [2026-01-26 Mon 17:49]
 *** DONE Create some other images
 CLOSED: [2026-01-26 Mon 17:54]
 
+** Chapter 5:
+*** TODO Render a red sphere
