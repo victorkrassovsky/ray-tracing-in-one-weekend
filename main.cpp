@@ -4,26 +4,45 @@
 #include "vec3.h"
 #include "ray.h"
 
+#define SPHERE_RADIUS 0.5
+#define SPHERE_CENTER point3(0,0,-1)
+
+bool hit_sphere(const ray& r, const point3 sphere_center, double radius){
+  vec3 v = r.origin() - sphere_center;
+  vec3 d = r.direction();
+  double a = dot(d, d);
+  double b = (-2)*dot(d, v);
+  double c = dot(v,v) - radius*radius;
+
+  double disc = b*b - 4*a*c;
+
+  if (disc >= 0){
+    return true;
+  }
+  return false;
+}
+
 color ray_color(const ray& r) {
-    vec3 unit_direction = unit_vector(r.direction());
-    double a = 0.5*(unit_direction.y() + 1.0);
-    return (1.0-a)*color(1.0, 1.0, 1.0) + a*color(0.5, 0.7, 1.0);
+  if (hit_sphere(r, SPHERE_CENTER, SPHERE_RADIUS)) {
+    return color(1,0,0);
+  }
+  return color(1,1,1);
 }
 
 
 int main(){
 
   // Image
-  auto aspect_ratio = 16.0 / 9.0; // should be (image_height/image_width)
+  double aspect_ratio = 16.0 / 9.0; // should be (image_height/image_width)
   int image_width = 400;
   int image_height = int(image_width / aspect_ratio);
   image_height = (image_height < 1) ? 1 : image_height; // height needs to be a positive integer
 
   // Camera
 
-  auto focal_length = 1.0; // distance from camera to viewport
-  auto viewport_height = 2.0;
-  auto viewport_width = viewport_height * (double(image_width)/image_height);
+  double focal_length = 1.0; // distance from camera to viewport
+  double viewport_height = 2.0;
+  double viewport_width = viewport_height * (double(image_width)/image_height);
   point3 camera_center = point3(0,0,0);
 
   // vectors that go across and down the viewport

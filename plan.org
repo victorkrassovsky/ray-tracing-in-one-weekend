@@ -19,4 +19,6 @@ CLOSED: [2026-01-26 Mon 17:49]
 CLOSED: [2026-01-26 Mon 17:54]
 
 ** Chapter 5:
-*** TODO Render a red sphere
+*** DONE Render a red sphere in [[file:main.cpp][main.cpp]]
+CLOSED: [2026-01-27 Tue 22:43]
+*** TODO Debug: sphere is offcenter
