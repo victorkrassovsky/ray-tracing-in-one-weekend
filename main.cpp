@@ -15,11 +15,7 @@ bool hit_sphere(const ray& r, const point3 sphere_center, double radius){
   double c = dot(v,v) - radius*radius;
 
   double disc = b*b - 4*a*c;
-
-  if (disc >= 0){
-    return true;
-  }
-  return false;
+  return disc >= 0;
 }
 
 color ray_color(const ray& r) {
