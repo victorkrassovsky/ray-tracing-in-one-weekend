@@ -23,3 +23,11 @@ CLOSED: [2026-01-26 Mon 17:54]
 CLOSED: [2026-01-27 Tue 22:43]
 *** DONE Debug: sphere is offcenter
 CLOSED: [2026-01-29 Thu 15:20]
+
+** Chapter 6:
+*** TODO Implement surface normal in [[file:main.cpp][main.cpp]]
+*** TODO Simplify hit-checking code
+*** TODO Create hittable objects abstraction: [[file:hittable.h][hittable.h]]
+*** TODO Create sphere class: [[file:sphere.h][sphere.h]]
+*** TODO Create main header file and remove other headers: [[file:rtweekend.h][rtweekend.h]]
+*** TODO Create interval class: [[file:interval.h][interval.h]]
