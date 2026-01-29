@@ -39,15 +39,15 @@ class vec3{
     return *this;
   }
 
-  vec3& operator * (double t){
+  vec3& operator *=(double t){
     e[0] *= t;
     e[1] *= t;
     e[2] *= t;
     return *this;
   }
 
-  vec3& operator / (double t){
-    return *this * (1/t);
+  vec3& operator /=(double t){
+    return *this *= (1/t);
   }
 
   double length_squared() const{

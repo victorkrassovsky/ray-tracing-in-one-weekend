@@ -18,3 +18,8 @@ CLOSED: [2026-01-26 Mon 17:49]
 *** DONE Create some other images
 CLOSED: [2026-01-26 Mon 17:54]
 
+** Chapter 5:
+*** DONE Render a red sphere in [[file:main.cpp][main.cpp]]
+CLOSED: [2026-01-27 Tue 22:43]
+*** DONE Debug: sphere is offcenter
+CLOSED: [2026-01-29 Thu 15:20]
