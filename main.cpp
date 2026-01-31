@@ -7,25 +7,32 @@
 #define SPHERE_RADIUS 0.5
 #define SPHERE_CENTER point3(0,0,-1)
 
-bool hit_sphere(const ray& r, const point3 sphere_center, double radius){
-  vec3 v = r.origin() - sphere_center;
+double hit_sphere(const ray& r, const point3& sphere_center, double radius){
+  vec3 v = sphere_center - r.origin();
   vec3 d = r.direction();
   double a = dot(d, d);
   double b = (-2)*dot(d, v);
   double c = dot(v,v) - radius*radius;
 
   double disc = b*b - 4*a*c;
-  return disc >= 0;
+  if (disc < 0.0){
+    return -1.0;
+  }
+  else{
+    return (-b - std::sqrt(disc)) / (2.0 * a);
+  }
 }
 
 color ray_color(const ray& r) {
-  if (hit_sphere(r, SPHERE_CENTER, SPHERE_RADIUS)) {
-    return color(1,0,0);
+  double t = hit_sphere(r, SPHERE_CENTER, SPHERE_RADIUS);
+  if (t > 0.0){
+    vec3 N = unit_vector(r.at(t) - SPHERE_CENTER);
+    return 0.5*color(N.x()+1, N.y()+1, N.z()+1);
   }
+  
   vec3 unit_direction = unit_vector(r.direction());
   double a = 0.5*(unit_direction.y() + 1.0);
   return (1.0-a)*color(1.0, 1.0, 1.0) + a*color(0.5, 0.7, 1.0);
-
 }
 
 
