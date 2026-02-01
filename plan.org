@@ -27,7 +27,8 @@ CLOSED: [2026-01-29 Thu 15:20]
 ** Chapter 6:
 *** DONE Implement surface normal in [[file:main.cpp][main.cpp]]
 CLOSED: [2026-01-31 Sat 15:11]
-*** TODO Simplify hit-checking code
+*** DONE Simplify hit-checking code
+CLOSED: [2026-01-31 Sat 16:02]
 *** TODO Create hittable objects abstraction: [[file:hittable.h][hittable.h]]
 *** TODO Create sphere class: [[file:sphere.h][sphere.h]]
 *** TODO Create main header file and remove other headers: [[file:rtweekend.h][rtweekend.h]]

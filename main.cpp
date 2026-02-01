@@ -11,15 +11,15 @@ double hit_sphere(const ray& r, const point3& sphere_center, double radius){
   vec3 v = sphere_center - r.origin();
   vec3 d = r.direction();
   double a = dot(d, d);
-  double b = (-2)*dot(d, v);
+  double h = dot(d, v);
   double c = dot(v,v) - radius*radius;
 
-  double disc = b*b - 4*a*c;
+  double disc = h*h - a*c;
   if (disc < 0.0){
     return -1.0;
   }
   else{
-    return (-b - std::sqrt(disc)) / (2.0 * a);
+    return (h - std::sqrt(disc)) / a;
   }
 }
 
