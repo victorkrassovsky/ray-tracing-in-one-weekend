@@ -1,8 +1,6 @@
 #ifndef HITTABLE_H
 #define HITTABLE_H
 
-#include "ray.h"
-
 
 // record for a hit with a ray and hittable
 // stores the position, normal vector, and scalar for a ray 
@@ -11,6 +9,13 @@ class hit_record {
   point3 p;
   vec3 normal;
   double t;
+  bool front_face;
+
+  // sets the hit record normal vector
+  void set_face_normal(const ray& r, const vec3& outward_normal){
+    front_face = dot(r.direction(), outward_normal) < 0;
+    normal = front_face ? outward_normal : -outward_normal;
+  }
 };
 
 // base class for hittable objects, i.e. ones that rays can hit
