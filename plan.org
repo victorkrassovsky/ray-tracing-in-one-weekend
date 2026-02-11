@@ -47,5 +47,6 @@ CLOSED: [2026-02-11 Wed 15:25]
 CLOSED: [2026-02-11 Wed 15:25]
 
 ** Chapter 8:
-*** TODO Add some random number generating functions to [[file:rtweekend.h][rtweekend.h]]
+*** DONE Add some random number generating functions to [[file:rtweekend.h][rtweekend.h]]
+CLOSED: [2026-02-11 Wed 15:38]
 *** TODO Update relevant files to implement antialiasing
