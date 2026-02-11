@@ -1,28 +1,25 @@
 #include <iostream>
 
-#include "color.h"
-#include "vec3.h"
-#include "ray.h"
+#include "rtweekend.h"
+#include "hittable.h"
+#include "hittable_list.h"
+#include "sphere.h"
 
 #define SPHERE_RADIUS 0.5
 #define SPHERE_CENTER point3(0,0,-1)
 
-bool hit_sphere(const ray& r, const point3 sphere_center, double radius){
-  vec3 v = r.origin() - sphere_center;
-  vec3 d = r.direction();
-  double a = dot(d, d);
-  double b = (-2)*dot(d, v);
-  double c = dot(v,v) - radius*radius;
+#define GROUND_RADIUS 100
+#define GROUND_CENTER point3(0,-100.5,-1)
 
-  double disc = b*b - 4*a*c;
-  return disc >= 0;
-}
-
-color ray_color(const ray& r) {
-  if (hit_sphere(r, SPHERE_CENTER, SPHERE_RADIUS)) {
-    return color(1,0,0);
+color ray_color(const ray& r, const hittable& world) {
+  hit_record rec;
+  if (world.hit(r, 0, infinity, rec)) {
+    return 0.5 * (rec.normal + color(1,1,1));
   }
-  return color(1,1,1);
+  
+  vec3 unit_direction = unit_vector(r.direction());
+  double a = 0.5*(unit_direction.y() + 1.0);
+  return (1.0-a)*color(1.0, 1.0, 1.0) + a*color(0.5, 0.7, 1.0);
 }
 
 
@@ -33,6 +30,13 @@ int main(){
   int image_width = 400;
   int image_height = int(image_width / aspect_ratio);
   image_height = (image_height < 1) ? 1 : image_height; // height needs to be a positive integer
+
+  // World
+
+  hittable_list world;
+
+  world.add(make_shared<sphere>(SPHERE_CENTER, SPHERE_RADIUS));
+  world.add(make_shared<sphere>(GROUND_CENTER, GROUND_RADIUS));
 
   // Camera
 
@@ -64,7 +68,7 @@ int main(){
       vec3 ray_direction = pixel_center - camera_center;
       ray r(camera_center, ray_direction);
 
-      color pixel_color = ray_color(r);
+      color pixel_color = ray_color(r, world);
       write_color(std::cout, pixel_color);
     }
   }
