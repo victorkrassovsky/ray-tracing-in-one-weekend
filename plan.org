@@ -41,6 +41,8 @@ CLOSED: [2026-02-03 Tue 12:32]
 CLOSED: [2026-02-11 Wed 10:55]
 
 ** Chapter 7:
-*** TODO Create [[file:camera.h][camera class]]
-*** TODO Update [[file:main.cpp::include <iostream>][main.cpp]]
+*** DONE Create [[file:camera.h][camera class]]
+CLOSED: [2026-02-11 Wed 15:25]
+*** DONE Update [[file:main.cpp::include <iostream>][main.cpp]]
+CLOSED: [2026-02-11 Wed 15:25]
 
