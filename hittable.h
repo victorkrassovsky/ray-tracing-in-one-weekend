@@ -1,7 +1,6 @@
 #ifndef HITTABLE_H
 #define HITTABLE_H
 
-
 // record for a hit with a ray and hittable
 // stores the position, normal vector, and scalar for a ray 
 class hit_record {
@@ -23,7 +22,7 @@ class hittable {
  public:
   virtual ~hittable() = default;
   
-  virtual bool hit(const ray& r, double ray_tmin, double ray_tmax, hit_record& rec) const{
+  virtual bool hit(const ray& r, interval ray_t, hit_record& rec) const{
     return 0;
   }
     

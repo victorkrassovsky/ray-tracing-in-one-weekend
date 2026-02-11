@@ -37,4 +37,6 @@ CLOSED: [2026-01-31 Sat 16:35]
 CLOSED: [2026-02-03 Tue 12:11]
 *** DONE Create main header file and remove other headers: [[file:rtweekend.h][rtweekend.h]]
 CLOSED: [2026-02-03 Tue 12:32]
-*** TODO Create interval class: [[file:interval.h][interval.h]]
+*** DONE Create interval class: [[file:interval.h][interval.h]]
+CLOSED: [2026-02-11 Wed 10:55]
+
