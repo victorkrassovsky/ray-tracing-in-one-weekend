@@ -46,3 +46,6 @@ CLOSED: [2026-02-11 Wed 15:25]
 *** DONE Update [[file:main.cpp::include <iostream>][main.cpp]]
 CLOSED: [2026-02-11 Wed 15:25]
 
+** Chapter 8:
+*** TODO Add some random number generating functions to [[file:rtweekend.h][rtweekend.h]]
+*** TODO Update relevant files to implement antialiasing
