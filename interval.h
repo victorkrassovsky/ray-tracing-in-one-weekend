@@ -21,6 +21,14 @@ class interval {
     return min < t && t < max;
   }
 
+  double clamp(double t) const {
+    if (t < min)
+      return min;
+    if (t > max)
+      return max;
+    return t;
+  }
+
   static const interval empty, universe;
 };
 

@@ -7,25 +7,26 @@ class camera {
  public:
   double aspect_ratio = 1.0;
   int image_width = 100;
+  int samples_per_pixel = 10; // count of random samples for each pixel (for antialiasing)
   
-  void render(const hittable& world){
+  void render(const hittable& world) {
     initialize();
-    
-    // Render
-    std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
-  
-    for (int j = 0; j < image_height; j++){
-      std::clog << "\rScanlogs remaining: " << (image_height - j) << " " << std::flush;
-      for(int i = 0; i < image_width ; i++){
-	point3 pixel_center = pixel00_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
-	vec3 ray_direction = pixel_center - center;
-	ray r(center, ray_direction);
 
-	color pixel_color = ray_color(r, world);
-	write_color(std::cout, pixel_color);
+    std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
+
+    for (int j = 0; j < image_height; j++) {
+      std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
+      for (int i = 0; i < image_width; i++) {
+	color pixel_color(0,0,0);
+	for (int sample = 0; sample < samples_per_pixel; sample++) {
+	  ray r = get_ray(i, j);
+	  pixel_color += ray_color(r, world);
+	}
+	write_color(std::cout, pixel_color / samples_per_pixel);
       }
     }
-    std::clog << "\rDone \n";
+
+    std::clog << "\rDone.\n";
   }
 
   
@@ -35,6 +36,7 @@ class camera {
   point3 pixel00_loc; // upper left pixel inside the viewport 
   vec3 pixel_delta_u; // horizontal incremental vector between pixels
   vec3 pixel_delta_v; // vertical incremental vector between pixels
+  // double pixel_samples_scale; // color scale factor (antialiasing)
   
   void initialize(){
     image_height = int(image_width / aspect_ratio);
@@ -45,7 +47,7 @@ class camera {
     double viewport_height = 2.0;
     double viewport_width = viewport_height * (double(image_width)/image_height);
     center = point3(0,0,0);
-
+    
     // vectors that go across and down the viewport
     vec3 viewport_u = vec3(viewport_width, 0, 0);
     vec3 viewport_v = vec3(0, -viewport_height, 0);
@@ -58,7 +60,22 @@ class camera {
     point3 viewport_upper_left = center - vec3(0,0,focal_length) - viewport_u/2 - viewport_v/2; // upper left corner of the viewport
     pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v); 
   }
+  
 
+  // given the pixel (i,j), get a random ray from the camera to a point in a neighborhood around the pixel
+  ray get_ray(int i, int j) const {
+    vec3 offset = sample_square();
+    vec3 pixel_sample = pixel00_loc +
+      ((i+offset.x()) * pixel_delta_u) +
+      ((j+offset.y()) * pixel_delta_v);
+    return ray(center, pixel_sample - center);      
+  }
+
+  // returns a random vector to a point in the square [-0.5, 0.5] x [-0.5, 0.5]
+  vec3 sample_square() const{
+    return vec3(random_double(-0.5, 0.5), random_double(0.5, 0.5), 0);
+  }
+  
   // given a ray and hittable, what color should the ray be when it hits
   color ray_color(const ray& r, const hittable& world) const {
     hit_record rec;
