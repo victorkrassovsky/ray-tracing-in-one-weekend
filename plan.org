@@ -51,3 +51,13 @@ CLOSED: [2026-02-11 Wed 15:25]
 CLOSED: [2026-02-11 Wed 15:38]
 *** DONE Update relevant files to implement antialiasing
 CLOSED: [2026-02-11 Wed 16:58]
+
+** Chapter 9:
+*** DONE Add some rand utility functions to [[file:vec3.h::ifndef VEC3_H][vec3.h]]
+CLOSED: [2026-02-17 Tue 22:01]
+*** DONE Update [[file:camera.h][camera.h]] to render a diffuse sphere
+CLOSED: [2026-02-17 Tue 22:01]
+*** TODO Update [[file:camera.h][camera.h]] to limit number of child rays it checks
+*** TODO Eliminate "shadow acne" problem 
+*** TODO Implement true Lambertian reflection
+*** TODO Implement gamma correction
