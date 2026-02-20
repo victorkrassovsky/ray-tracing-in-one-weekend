@@ -1,6 +1,8 @@
 #ifndef HITTABLE_H
 #define HITTABLE_H
 
+class material;
+
 // record for a hit with a ray and hittable
 // stores the position, normal vector, and scalar for a ray 
 class hit_record {
@@ -9,7 +11,8 @@ class hit_record {
   vec3 normal;
   double t;
   bool front_face;
-
+  shared_ptr<material> mat;
+  
   // sets the hit record normal vector
   void set_face_normal(const ray& r, const vec3& outward_normal){
     front_face = dot(r.direction(), outward_normal) < 0;

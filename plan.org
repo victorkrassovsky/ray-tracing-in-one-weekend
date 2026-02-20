@@ -69,7 +69,8 @@ CLOSED: [2026-02-20 Fri 10:58]
 ** Chapter 10:
 *** DONE Create abstraction for materials in [[file:material.h][material.h]]
 CLOSED: [2026-02-20 Fri 11:54]
-*** TODO Add support for materials in [[file:hittable.h::ifndef HITTABLE_H][hittable.h]] and [[file:sphere.h::ifndef SPHERE_H][sphere.h]]
+*** DONE Add support for materials in [[file:hittable.h::ifndef HITTABLE_H][hittable.h]] and [[file:sphere.h::ifndef SPHERE_H][sphere.h]]
+CLOSED: [2026-02-20 Fri 12:02]
 *** TODO Expand [[file:material.h][material.h]]
 *** TODO Add metal material to [[file:material.h][material.h]]
 *** TODO Create a scene with metal spheres
