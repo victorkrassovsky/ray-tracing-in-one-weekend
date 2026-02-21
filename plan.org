@@ -73,7 +73,10 @@ CLOSED: [2026-02-20 Fri 11:54]
 CLOSED: [2026-02-20 Fri 12:02]
 *** DONE Expand [[file:material.h][material.h]]
 CLOSED: [2026-02-20 Fri 12:16]
-*** TODO Add metal material to [[file:material.h][material.h]]
-*** TODO Create a scene with metal spheres
-*** TODO Implement fuzzy reflections
+*** DONE Add metal material to [[file:material.h][material.h]]
+CLOSED: [2026-02-20 Fri 18:01]
+*** DONE Create a scene with metal spheres
+CLOSED: [2026-02-20 Fri 18:01]
+*** DONE Implement fuzzy reflections
+CLOSED: [2026-02-20 Fri 18:01]
 
