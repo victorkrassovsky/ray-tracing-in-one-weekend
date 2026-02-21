@@ -72,8 +72,20 @@ public:
     double index_ratio = rec.front_face ? (1.0/index) : index;
 
     vec3 unit_direction = unit_vector(r.direction());
-    vec3 refracted = refract(unit_direction, rec.normal, index_ratio);
-    scattered = ray(rec.p, refracted);
+    double cos_theta = std::fmin(dot(-unit_direction, rec.normal), 1.0);
+    double sin_theta = std::sqrt(1 - cos_theta * cos_theta);
+
+    // if sin_theta' = index_ratio sin_theta, so if the rhs is greater than 1,
+    // theta' can't exist so there cannot be a refraction
+    bool cannot_refract = index_ratio * sin_theta > 1.0; 
+    vec3 direction;
+
+    if (cannot_refract)
+      direction = reflect(unit_direction, rec.normal); // must reflect
+    else
+      direction = refract(unit_direction, rec.normal, index_ratio); // can refract
+    
+    scattered = ray(rec.p, direction);
     return true;
   }
 };
