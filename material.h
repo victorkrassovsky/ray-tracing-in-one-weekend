@@ -1,7 +1,7 @@
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
-#inlcude "hittable.h"
+#include "hittable.h"
 
 class material{
  public:
@@ -23,13 +23,29 @@ public:
   lambertian(const color& albedo) : albedo(albedo) {}
 
   bool scatter(const ray& r, const hit_record& rec, color& attenuation, ray& scattered) const override {
-    vec3 scatter_direction = rec.normal() + random_unit_vector();
+    vec3 scatter_direction = rec.normal + random_unit_vector();
 
     if (scatter_direction.near_zero()){
-      scatter_direction = rec.normal();
+      scatter_direction = rec.normal;
     }
     
-    scattered = ray(rec.p, scatted_rection);
+    scattered = ray(rec.p, scatter_direction);
+    attenuation = albedo;
+    return true;
+  }
+};
+
+// material that reflects light across its surface
+class metal : public material {
+private:
+  color albedo;
+
+public:
+  metal(const color& albedo) : albedo(albedo) {}
+
+  bool scatter(const ray& r, const hit_record& rec, color& attenuation, ray& scattered) const override{
+    vec3 reflected = reflect(r.direction(), rec.normal);
+    scattered = ray(rec.p, reflected);
     attenuation = albedo;
     return true;
   }

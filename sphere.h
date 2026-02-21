@@ -7,12 +7,10 @@ class sphere : public hittable {
  private:
   point3 center;
   double radius;
-  shared<ptr> mat;
+  shared_ptr<material> mat;
 
  public:
-  sphere(const point3& center, double radius) : center(center), radius(std::fmax(0, radius)) {
-    // TODO material initialization
-  }
+  sphere(const point3& center, double radius, shared_ptr<material> mat) : center(center), radius(std::fmax(0, radius)), mat(mat) {}
   
   // returns true and updates rec if the ray and sphere intersect
   // sets rec.p to closest point

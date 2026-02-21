@@ -54,7 +54,7 @@ class vec3{
   // true if all component are less than e-8 in abs
   bool near_zero(){
     double s = 1e-8;
-    return (std::fabs(e[0]) < s) && (std::fabs(e[1]) < s) && (std:fabs(e[2]) < s);
+    return (std::fabs(e[0]) < s) && (std::fabs(e[1]) < s) && (std::fabs(e[2]) < s);
   }
   
   double length() const {
@@ -136,6 +136,11 @@ inline vec3 random_on_hemisphere(const vec3& normal){
   else
     return -on_unit_sphere;
   
+}
+
+// reflects v across plane that n is normal to
+inline vec3 reflect(const vec3& v, const vec3& n){
+  return v - 2 * dot(v,n)*n;
 }
 
 #endif
