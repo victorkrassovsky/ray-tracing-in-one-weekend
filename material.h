@@ -36,18 +36,22 @@ public:
 };
 
 // material that reflects light across its surface
+// color is given by albedo
+// fuzz gives perperurbation of rays that hit
 class metal : public material {
 private:
   color albedo;
+  double fuzz;
 
 public:
-  metal(const color& albedo) : albedo(albedo) {}
+  metal(const color& albedo, double fuzz) : albedo(albedo), fuzz(fuzz){}
 
   bool scatter(const ray& r, const hit_record& rec, color& attenuation, ray& scattered) const override{
     vec3 reflected = reflect(r.direction(), rec.normal);
+    reflected = unit_vector(reflected) + (fuzz * random_unit_vector());
     scattered = ray(rec.p, reflected);
     attenuation = albedo;
-    return true;
+    return (dot(scattered.direction(), rec.normal) > 0);
   }
 };
 #endif
