@@ -83,7 +83,8 @@ CLOSED: [2026-02-20 Fri 18:01]
 ** Chapter 11:
 ** DONE Add vector refraction to vec3
 CLOSED: [2026-02-21 Sat 12:18]
-** TODO Add dielectric material type
+** DONE Add dielectric material type
+CLOSED: [2026-02-21 Sat 12:30]
 ** TODO Sometimes dialectrics cannot refract, and so much reflect, fix this in material.h
 ** TODO Do Schlick approximation 
 ** TODO Make an image with a hollow glass sphere

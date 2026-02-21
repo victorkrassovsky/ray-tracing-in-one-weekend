@@ -54,4 +54,29 @@ public:
     return (dot(scattered.direction(), rec.normal) > 0);
   }
 };
+
+// transparent material, refracts light according to index paramter
+// reflects around the edges
+class dialectric : public material{
+private:
+  double index;
+  
+public:
+  dialectric(double index) : index(index) {}
+
+  bool scatter(const ray& r, const hit_record& rec, color& attenuation, ray& scattered) const override{
+    attenuation = color(1.0,1.0,1.0);
+    
+    // if the ray is going out of the surface, the ratio of indices is reversed
+    // the index of air is about 1.0
+    double index_ratio = rec.front_face ? (1.0/index) : index;
+
+    vec3 unit_direction = unit_vector(r.direction());
+    vec3 refracted = refract(unit_direction, rec.normal, index_ratio);
+    scattered = ray(rec.p, refracted);
+    return true;
+  }
+};
+
 #endif
+
