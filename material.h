@@ -60,6 +60,13 @@ public:
 class dialectric : public material{
 private:
   double index;
+
+  // Schlick's approximation
+  static double reflectance(double cosine, double index) {
+    double r0 = (1 - index) / (1 + index);
+    r0 *= r0;
+    return r0 + (1-r0)*std::pow((1 - cosine), 5);
+  }
   
 public:
   dialectric(double index) : index(index) {}
@@ -80,7 +87,7 @@ public:
     bool cannot_refract = index_ratio * sin_theta > 1.0; 
     vec3 direction;
 
-    if (cannot_refract)
+    if (cannot_refract || reflectance(cos_theta, index) > random_double())
       direction = reflect(unit_direction, rec.normal); // must reflect
     else
       direction = refract(unit_direction, rec.normal, index_ratio); // can refract
