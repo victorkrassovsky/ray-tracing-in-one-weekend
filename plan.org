@@ -65,3 +65,15 @@ CLOSED: [2026-02-18 Wed 11:30]
 CLOSED: [2026-02-20 Fri 10:58]
 *** DONE Implement gamma correction
 CLOSED: [2026-02-20 Fri 10:58]
+
+** Chapter 10:
+*** DONE Create abstraction for materials in [[file:material.h][material.h]]
+CLOSED: [2026-02-20 Fri 11:54]
+*** DONE Add support for materials in [[file:hittable.h::ifndef HITTABLE_H][hittable.h]] and [[file:sphere.h::ifndef SPHERE_H][sphere.h]]
+CLOSED: [2026-02-20 Fri 12:02]
+*** DONE Expand [[file:material.h][material.h]]
+CLOSED: [2026-02-20 Fri 12:16]
+*** TODO Add metal material to [[file:material.h][material.h]]
+*** TODO Create a scene with metal spheres
+*** TODO Implement fuzzy reflections
+
