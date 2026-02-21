@@ -80,3 +80,12 @@ CLOSED: [2026-02-20 Fri 18:01]
 *** DONE Implement fuzzy reflections
 CLOSED: [2026-02-20 Fri 18:01]
 
+** Chapter 11:
+** DONE Add vector refraction to vec3
+CLOSED: [2026-02-21 Sat 12:18]
+** DONE Add dielectric material type
+CLOSED: [2026-02-21 Sat 12:30]
+** DONE Sometimes dialectrics cannot refract, and so much reflect, fix this in material.h
+CLOSED: [2026-02-21 Sat 15:22]
+** TODO Do Schlick approximation 
+** TODO Make an image with a hollow glass sphere

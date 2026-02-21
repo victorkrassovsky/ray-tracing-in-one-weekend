@@ -143,4 +143,13 @@ inline vec3 reflect(const vec3& v, const vec3& n){
   return v - 2 * dot(v,n)*n;
 }
 
+// refracts ray with index ratio mu
+// r and n should be unit vectors
+inline vec3 refract(const vec3& r, const vec3& n, double mu){
+  double cos_theta = std::fmin(dot(-r,n), 1.0);
+  vec3 r_perp = mu * (r + cos_theta*n);
+  vec3 r_par = (-1) * std::sqrt(std::fabs(1-r_perp.length_squared())) * n;
+  return r_perp + r_par;
+}
+
 #endif
