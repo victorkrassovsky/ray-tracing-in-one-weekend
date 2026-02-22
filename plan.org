@@ -87,5 +87,7 @@ CLOSED: [2026-02-21 Sat 12:18]
 CLOSED: [2026-02-21 Sat 12:30]
 ** DONE Sometimes dialectrics cannot refract, and so much reflect, fix this in material.h
 CLOSED: [2026-02-21 Sat 15:22]
-** TODO Do Schlick approximation 
-** TODO Make an image with a hollow glass sphere
+** DONE Do Schlick approximation 
+CLOSED: [2026-02-21 Sat 15:46]
+** DONE Make an image with a hollow glass sphere
+CLOSED: [2026-02-21 Sat 22:11]
