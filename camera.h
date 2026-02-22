@@ -10,6 +10,7 @@ class camera {
   int image_width = 100;
   int samples_per_pixel = 10; // count of random samples for each pixel (for antialiasing)
   int max_depth = 10; // max number of ray bounces
+  double vfov = 90; // vertical field of view, in degrees
   
   void render(const hittable& world) {
     initialize();
@@ -48,10 +49,15 @@ class camera {
     
     // Camera
     double focal_length = 1.0; // distance from camera to viewport
-    double viewport_height = 2.0;
-    double viewport_width = viewport_height * (double(image_width)/image_height);
+    
     center = point3(0,0,0);
     
+    double theta = degrees_to_radians(vfov);
+    double h = std::tan(theta/2);
+    
+    double viewport_height = 2.0 * h * focal_length;
+    double viewport_width = viewport_height * (double(image_width)/image_height);
+      
     // vectors that go across and down the viewport
     vec3 viewport_u = vec3(viewport_width, 0, 0);
     vec3 viewport_v = vec3(0, -viewport_height, 0);
