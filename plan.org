@@ -81,13 +81,18 @@ CLOSED: [2026-02-20 Fri 18:01]
 CLOSED: [2026-02-20 Fri 18:01]
 
 ** Chapter 11:
-** DONE Add vector refraction to vec3
+*** DONE Add vector refraction to vec3
 CLOSED: [2026-02-21 Sat 12:18]
-** DONE Add dielectric material type
+*** DONE Add dielectric material type
 CLOSED: [2026-02-21 Sat 12:30]
-** DONE Sometimes dialectrics cannot refract, and so much reflect, fix this in material.h
+*** DONE Sometimes dialectrics cannot refract, and so much reflect, fix this in material.h
 CLOSED: [2026-02-21 Sat 15:22]
-** DONE Do Schlick approximation 
+*** DONE Do Schlick approximation 
 CLOSED: [2026-02-21 Sat 15:46]
-** DONE Make an image with a hollow glass sphere
+*** DONE Make an image with a hollow glass sphere
 CLOSED: [2026-02-21 Sat 22:11]
+
+** Chapter 12:
+*** TODO Add fov and angle to camera
+*** TODO Add positioning to camera
+
