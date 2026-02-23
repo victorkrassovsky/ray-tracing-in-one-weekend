@@ -10,6 +10,11 @@ class camera {
   int image_width = 100;
   int samples_per_pixel = 10; // count of random samples for each pixel (for antialiasing)
   int max_depth = 10; // max number of ray bounces
+  double vfov = 90; // vertical field of view, in degrees
+
+  point3 camera_pos = point3(0,0,0); // position of the camera
+  point3 lookat = point3(0,0,-1); // point camera is looking at
+  vec3 up = vec3(0,1,0); // up direction
   
   void render(const hittable& world) {
     initialize();
@@ -39,6 +44,7 @@ class camera {
   vec3 pixel_delta_u; // horizontal incremental vector between pixels
   vec3 pixel_delta_v; // vertical incremental vector between pixels
   double pixel_samples_scale; // color scale factor (antialiasing)
+  vec3 u,v,w; // basis vectors
   
   void initialize(){
     image_height = int(image_width / aspect_ratio);
@@ -47,21 +53,30 @@ class camera {
     pixel_samples_scale = 1.0 / samples_per_pixel;
     
     // Camera
-    double focal_length = 1.0; // distance from camera to viewport
-    double viewport_height = 2.0;
-    double viewport_width = viewport_height * (double(image_width)/image_height);
-    center = point3(0,0,0);
+    double focal_length = (camera_pos - lookat).length(); // distance from camera to viewport
+    center = camera_pos;
     
+    double theta = degrees_to_radians(vfov);
+    double h = std::tan(theta/2);
+    
+    double viewport_height = 2.0 * h * focal_length;
+    double viewport_width = viewport_height * (double(image_width)/image_height);
+
+    // calculate u,v,w, righthand rule garbage
+    w = unit_vector(camera_pos - lookat);
+    u = unit_vector(cross(up, w));
+    v = cross(w,u);
+      
     // vectors that go across and down the viewport
-    vec3 viewport_u = vec3(viewport_width, 0, 0);
-    vec3 viewport_v = vec3(0, -viewport_height, 0);
+    vec3 viewport_u = viewport_width * u;
+    vec3 viewport_v = viewport_height * (-v);
 
     // distances between pixels
     pixel_delta_u = viewport_u / image_width;
     pixel_delta_v = viewport_v / image_height;
 
     // upper left pixel location
-    point3 viewport_upper_left = center - vec3(0,0,focal_length) - viewport_u/2 - viewport_v/2; // upper left corner of the viewport
+    point3 viewport_upper_left = center - (focal_length * w) - viewport_u/2 - viewport_v/2; // upper left corner of the viewport
     pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v); 
   }
   

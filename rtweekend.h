@@ -9,12 +9,12 @@
 
 // some constants
 const double infinity = std::numeric_limits<double>::infinity();
-const double pi = 1415926535897932385;
+const double pi = 3.1415926535897932385;
 
 
 // utility funs
 inline double degrees_to_radians(double degrees) {
-  return degrees * pi/100.0;
+  return (degrees/180.0) * pi;
 }
 
 // returns a random real from [0,1)
