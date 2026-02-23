@@ -94,5 +94,6 @@ CLOSED: [2026-02-21 Sat 22:11]
 ** Chapter 12:
 *** DONE Add fov and angle to camera
 CLOSED: [2026-02-22 Sun 18:58]
-*** TODO Add positioning to camera
+*** DONE Add positioning to camera
+CLOSED: [2026-02-22 Sun 20:08]
 
