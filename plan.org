@@ -1,4 +1,3 @@
-
 * Tasks
 ** DONE Implement the vec3 class [[file:vec3.h][.h file]]
 CLOSED: [2026-01-23 Fri 16:58]
@@ -93,6 +92,7 @@ CLOSED: [2026-02-21 Sat 15:46]
 CLOSED: [2026-02-21 Sat 22:11]
 
 ** Chapter 12:
-*** TODO Add fov and angle to camera
+*** DONE Add fov and angle to camera
+CLOSED: [2026-02-22 Sun 18:58]
 *** TODO Add positioning to camera
 
