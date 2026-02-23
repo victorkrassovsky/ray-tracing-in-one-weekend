@@ -5,7 +5,7 @@ Going through this [book](https://raytracing.github.io/books/RayTracingInOneWeek
 Some images I've made:
 
 <p align=center>
-<img width="398" height="220" alt="image" src="https://github.com/user-attachments/assets/0cbcd422-9152-424d-b855-6bac74e69869" />
+<img width="1600" height="900" alt="image" src="pngs/green_refraction.png"/>
 </p>
 
 <p align=center>
