@@ -97,7 +97,6 @@ CLOSED: [2026-02-22 Sun 18:58]
 *** DONE Add positioning to camera
 CLOSED: [2026-02-22 Sun 20:08]
 
-** Chapter 13:
-*** TODO add random unit disk generator in vec3
-*** TODO add defocus disk to camera
-*** TODO generate an image
+** Final:
+*** DONE Make a cool image
+CLOSED: [2026-02-23 Mon 10:10]
