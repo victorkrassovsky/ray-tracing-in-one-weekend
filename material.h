@@ -69,7 +69,7 @@ private:
   }
   
 public:
-  dialectric(double index) : index(index) {}
+  dielectric(double index) : index(index) {}
 
   bool scatter(const ray& r, const hit_record& rec, color& attenuation, ray& scattered) const override{
     attenuation = color(1.0,1.0,1.0);

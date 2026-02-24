@@ -103,7 +103,8 @@ CLOSED: [2026-02-23 Mon 10:10]
 
 
 ** EXTRAS:
-*** TODO Make some more images
+*** DONE Make some more images
+CLOSED: [2026-02-24 Tue 01:16]
 *** TODO Add better uniform dist sampling
 *** TODO multithreading
 *** TODO add triangles
