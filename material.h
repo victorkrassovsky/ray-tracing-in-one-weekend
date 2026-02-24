@@ -57,7 +57,7 @@ public:
 
 // transparent material, refracts light according to index paramter
 // reflects around the edges
-class dialectric : public material{
+class dielectric : public material{
 private:
   double index;
 
