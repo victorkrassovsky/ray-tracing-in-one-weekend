@@ -9,21 +9,16 @@
 
 int main(){
   hittable_list world;
-  
-  auto ground_material = make_shared<lambertian>(color(0.5, 0.5, 0.5));
-  world.add(make_shared<sphere>(point3(0,-1000,0), 1000, ground_material));
 
-  auto glass = make_shared<dialectric>(1.5);
-  auto material_blue = make_shared<lambertian>(color(0.2, 0.8, 0.1));
-  auto material_green = make_shared<lambertian>(color(0.2, 0.2, 0.7));
-  auto material_metal = make_shared<metal>(color(0.7, 0.6, 0.5), 0.0);
-  
-  world.add(make_shared<sphere>(point3(4, 1, 0), 1.0, material_blue));
-  world.add(make_shared<sphere>(point3(3, 1, 1), 0.75, material_metal));
-  world.add(make_shared<sphere>(point3(2, 1, 2), 0.50, material_green));
-  world.add(make_shared<sphere>(point3(1, 1, 3), 0.25, material_metal));
-  world.add(make_shared<sphere>(point3(5, 0.5, 1), 0.50, glass));
+  //shared_ptr<material> background = make_shared<lambertian>(color(0.4,0.4,0.4));
+  shared_ptr<material> metal_left = make_shared<metal>(color(0.7, 0.2, 0.2), 0.1);
+  shared_ptr<material> metal_right = make_shared<metal>(color(0.2, 0.2, 0.7), 0.2);
+  shared_ptr<material> middle = make_shared<lambertian>(color(0.7, 0.1, 0.7));
 
+  //world.add(make_shared<sphere>(point3(0,0,500), 450, background));
+  world.add(make_shared<sphere>(point3(-10.5, 0, 5), 10, metal_left));
+  world.add(make_shared<sphere>(point3( 10.5, 0, 5), 10, metal_right));
+  world.add(make_shared<sphere>(point3(0,0, 2), 0.5, middle));
   camera cam;
 
   cam.aspect_ratio      = 16.0 / 9.0;
@@ -31,9 +26,9 @@ int main(){
   cam.samples_per_pixel = 200;
   cam.max_depth         = 50;
 
-  cam.vfov     = 20;
-  cam.camera_pos = point3(13,2,3);
-  cam.lookat   = point3(0,0,0);
+  cam.vfov     = 90;
+  cam.camera_pos = point3(0,0,0);
+  cam.lookat   = point3(0,0,5);
   cam.up      = vec3(0,1,0);
 
   cam.render(world);
