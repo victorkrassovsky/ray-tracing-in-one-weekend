@@ -6,6 +6,7 @@
 #include "sphere.h"
 #include "camera.h"
 #include "material.h"
+#include "triangle.h"
 
 int main(){
   hittable_list world;
@@ -16,14 +17,13 @@ int main(){
   shared_ptr<material> middle = make_shared<lambertian>(color(0.7, 0.1, 0.7));
 
   //world.add(make_shared<sphere>(point3(0,0,500), 450, background));
-  world.add(make_shared<sphere>(point3(-10.5, 0, 5), 10, metal_left));
-  world.add(make_shared<sphere>(point3( 10.5, 0, 5), 10, metal_right));
-  world.add(make_shared<sphere>(point3(0,0, 2), 0.5, middle));
+  world.add(make_shared<triangle>(point3(0,0,4),point3(0,1,4),point3(1,0,4), middle));
+  
   camera cam;
 
   cam.aspect_ratio      = 16.0 / 9.0;
-  cam.image_width       = 1600;
-  cam.samples_per_pixel = 200;
+  cam.image_width       = 400;
+  cam.samples_per_pixel = 100;
   cam.max_depth         = 50;
 
   cam.vfov     = 90;
