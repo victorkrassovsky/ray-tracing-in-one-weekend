@@ -27,3 +27,7 @@ Going through this [book](https://raytracing.github.io/books/RayTracingInOneWeek
 <p align=center>
 <img width="1600" height="900" alt="image" src="pngs/many_spheres.png" />
 </p>
+
+<p align=center>
+<img width="1600" height="900" alt="image" src="pngs/green_triangles.png" />
+</p>
